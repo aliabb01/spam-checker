@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import os
 import os.path
+import time
 
 # print(os.listdir("./Spam"))
 
@@ -62,13 +63,13 @@ for i in range(5000):
 print("\n\n\n\n\n\n\n SPAM \n\n\n\n\n\n\n")
 
 for i in wordfreq:
-    print(i, wordfreq[i])
+    # print(i, wordfreq[i])
     spam_count+=1
 
 print("\n\n\n\n\n\n\n NOT SPAM \n\n\n\n\n\n\n")
 
 for i in wordfreq2:
-    print(i, wordfreq2[i])
+    # print(i, wordfreq2[i])
     not_spam_count+=1
 
 
@@ -77,8 +78,9 @@ for i in wordfreq2:
 fileWords = {}
 fileWordsCount = 0
 
-index = 2
+index = 5
 isSpam = False
+
 
 if isSpam:
     checkFilePath = "Spam/" + str(index) + "_spam.txt"
@@ -107,7 +109,7 @@ else:
 print("\n\n\n\n\n\n")
 
 for i in fileWords:
-    print(i, fileWords[i])
+    # print(i, fileWords[i])
     fileWordsCount+=1
 
 
@@ -118,14 +120,14 @@ print("\n\nNumber of words in specified file is ", fileWordsCount)
 #-------------------------------- TASK 3 & 4. Check spamicity for words inside single file --------------------------------#
 
 
-print("\n\nFile ", checkFilePath, " was checked")
+# print("\n\nFile ", checkFilePath, " was checked")
 spamProbability = {}
 
 
-print("\n\nLEXEME SPAM/NOT SPAM OCCURENCE: \n\n")
+# print("\n\nLEXEME SPAM/NOT SPAM OCCURENCE: \n\n")
 
-print("-------------------------------------------------------------------")
-print ("{:<15} {:<20} {:<20} {:<20}".format("LEXEME", "SPAM OCCURENCE", "NOT SPAM OCCURENCE", "SPAM PROBABILITY"))
+# print("-------------------------------------------------------------------")
+# print ("{:<15} {:<20} {:<20} {:<20}".format("LEXEME", "SPAM OCCURENCE", "NOT SPAM OCCURENCE", "SPAM PROBABILITY"))
 
 spam_probability_sum = 0
 for k in wordfreq:
@@ -145,7 +147,7 @@ for k in wordfreq:
             spam_probability = (p_l_spam)/(p_l_spam + p_l_ham)                        
 
         if k in fileWords:
-            print ("{:<15} {:<20} {:<20} {:<20}".format(k, wordfreq[k], wordfreq2[k], round(spam_probability, 4)))
+            # print ("{:<15} {:<20} {:<20} {:<20}".format(k, wordfreq[k], wordfreq2[k], round(spam_probability, 4)))
             spam_probability_sum += spam_probability
             spamProbability[k] = round(spam_probability, 4)
                 
@@ -156,7 +158,7 @@ for k in wordfreq:
 
 
 spam_mean = spam_probability_sum / fileWordsCount   # mean value of spam probabilities for single file
-print("\n\n#-- Mean value of all probabilities from this file is : ", round(spam_mean, 4), " --#")
+# print("\n\n#-- Mean value of all probabilities from this file is : ", round(spam_mean, 4), " --#")
 
 
 #-------------------------------- TASK 5. Find remoted lexemes. // Lexemes that are farthest away from the mean probability --------------------------------#
@@ -165,7 +167,7 @@ remoted_lexemes = {}
 
 
 
-print("\n\n#-- Remoted probabilities from mean probability for this file are:  --#")
+# print("\n\n#-- Remoted probabilities from mean probability for this file are:  --#")
 
 N = 8   # number of chosen remoted lexemes
 
@@ -194,12 +196,44 @@ for i in range(N):
 remotedLoopCount = 0
 for i in remoted_lexemes:
     remotedLoopCount+=1
-    print("{:<10} {:<15} {:<15}".format(remotedLoopCount, i, remoted_lexemes[i]))
+    # print("{:<10} {:<15} {:<15}".format(remotedLoopCount, i, remoted_lexemes[i]))
 
 
 
+#-------------------------------- TASK 6. Calculating file spamicity value --------------------------------#
 
-    
+# TOP of equation
+
+remoted_lexemes_probs_multiplied = 1    # initial value for top part of the equation required for task 6
+
+for i in remoted_lexemes:
+    remoted_lexemes_probs_multiplied *= remoted_lexemes[i]
+
+# print("\n\nMultiplication of remoted lexemes: ", round(remoted_lexemes_probs_multiplied, 4))
+
+
+# BOTTOM-RIGHT of equation
+
+remoted_lexemes_substractOne = 1
+
+for i in remoted_lexemes:
+    remoted_lexemes_substractOne *= (1 - remoted_lexemes[i])
+
+# print("\n\nSubstraction part of equation: ", round(remoted_lexemes_substractOne, 4))
+
+
+# SPAMICITY PROBABILITY of a file. Equation for task 6
+
+spamicityProbabilityOfFile = remoted_lexemes_probs_multiplied / (remoted_lexemes_probs_multiplied + remoted_lexemes_substractOne)   # actual equation for task 6
+
+print("\n\nSPAMICITY PROBABILITY of selected file : ", round(spamicityProbabilityOfFile, 4))
+
+if spamicityProbabilityOfFile > 0.5:
+    print("\nIt is likely that selected file is SPAM")
+else:
+    print("\nIt is likely that selected file is NOT SPAM")
+
+
 
 
 print("\n\n\n\nFound: ")

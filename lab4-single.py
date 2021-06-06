@@ -1,5 +1,5 @@
 # import lab4
-import lab4
+from lab4 import index
 
 import numpy as np
 import pandas as pd
