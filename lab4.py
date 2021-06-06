@@ -27,7 +27,7 @@ for i in range(5000):
         spam_words = data.split()
         fp.close()
 
-        unwanted_chars = ".,-_"
+        unwanted_chars = ".,-_:'></}{_"
         
         for spam_word in spam_words:
             word = spam_word.strip(unwanted_chars)
@@ -48,7 +48,7 @@ for i in range(5000):
         ns_words = data2.split()
         fp2.close()
 
-        unwanted_chars = ".,-_"
+        unwanted_chars = ".,-_:'></}{_"
 
         for ns_word in ns_words:
             word2 = ns_word.strip(unwanted_chars)
@@ -95,7 +95,7 @@ def SpamCheck(a):
         check_words = data3.split()
         fp3.close()
 
-        unwanted_chars = ".,-_"
+        unwanted_chars = ".,-_:'></}{_"
 
         for check_word in check_words:
             word3 = check_word.strip(unwanted_chars)
@@ -111,6 +111,7 @@ def SpamCheck(a):
         print("=================================================================\n\n\n")
         print("Checking file :", checkFilePath, "\n\n")
         print("Number of words in specified file is ", fileWordsCount)
+        
 
 
 
@@ -121,10 +122,10 @@ def SpamCheck(a):
         spamProbability = {}
 
 
-        # print("\n\nLEXEME SPAM/NOT SPAM OCCURENCE: \n\n")
+        #print("\n\nLEXEME SPAM/NOT SPAM OCCURENCE: \n\n")
 
-        # print("-------------------------------------------------------------------")
-        # print ("{:<15} {:<20} {:<20} {:<20}".format("LEXEME", "SPAM OCCURENCE", "NOT SPAM OCCURENCE", "SPAM PROBABILITY"))
+        #print("-------------------------------------------------------------------")
+        #print ("{:<15} {:<20} {:<20} {:<20}".format("LEXEME", "SPAM OCCURENCE", "NOT SPAM OCCURENCE", "SPAM PROBABILITY"))
 
         spam_probability_sum = 0
         for k in wordfreq:
@@ -144,6 +145,7 @@ def SpamCheck(a):
                     spam_probability = (p_l_spam)/(p_l_spam + p_l_ham)                        
 
                 if k in fileWords:
+                    # UNCOMMENT THIS TO ENABLE TABLE PRINTING
                     # print ("{:<15} {:<20} {:<20} {:<20}".format(k, wordfreq[k], wordfreq2[k], round(spam_probability, 4)))
                     spam_probability_sum += spam_probability
                     spamProbability[k] = round(spam_probability, 4)
@@ -155,18 +157,14 @@ def SpamCheck(a):
 
 
         spam_mean = spam_probability_sum / fileWordsCount   # mean value of spam probabilities for single file
-        # print("\n\n#-- Mean value of all probabilities from this file is : ", round(spam_mean, 4), " --#")
+        print("\n\n#-- Mean value of all probabilities from this file is : ", round(spam_mean, 4), " --#")
 
 
         #-------------------------------- TASK 5. Find remoted lexemes. // Lexemes that are farthest away from the mean probability --------------------------------#
 
         remoted_lexemes = {}
 
-
-
-        # print("\n\n#-- Remoted probabilities from mean probability for this file are:  --#")
-
-        N = 8   # number of chosen remoted lexemes
+        N = 4   # number of chosen remoted lexemes
 
         for i in range(N):
             for k in spamProbability:
@@ -188,12 +186,13 @@ def SpamCheck(a):
                 spamProbability.pop(min_probability)
 
 
-        # for i in range(N):
-            
+        print("\n\n#-- Remoted probabilities from mean probability for this file are:  --#")
+
+
         remotedLoopCount = 0
         for i in remoted_lexemes:
             remotedLoopCount+=1
-            # print("{:<10} {:<15} {:<15}".format(remotedLoopCount, i, remoted_lexemes[i]))
+            print("{:<10} {:<15} {:<15}".format(remotedLoopCount, i, remoted_lexemes[i]))
 
 
 
@@ -242,9 +241,10 @@ def SpamCheck(a):
     
 
 
-for i in range(5000):
+for i in range(3500):
     SpamCheck(i)
-    # time.sleep(0.5)
+#     # time.sleep(0.5)
+
 
 print("\n\n\n\nFound: ")
 print(spam_count, " Spam lexemes")
