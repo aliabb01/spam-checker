@@ -72,12 +72,12 @@ for i in wordfreq2:
     not_spam_count+=1
 
 
-#---------------------------------------------#
+#---------------------- Initialization for checking a single file. Checking lexemes and their counts -----------------------#
 
 fileWords = {}
 fileWordsCount = 0
 
-index = 10
+index = 2
 isSpam = False
 
 if isSpam:
@@ -115,7 +115,7 @@ print("\n\nNumber of words in specified file is ", fileWordsCount)
 
 
 
-#---------------------------------------------#
+#-------------------------------- TASK 3 & 4. Check spamicity for words inside single file --------------------------------#
 
 
 print("\n\nFile ", checkFilePath, " was checked")
@@ -126,6 +126,7 @@ print("\n\nLEXEME SPAM/NOT SPAM OCCURENCE: \n\n")
 
 print("-------------------------------------------------------------------")
 print ("{:<15} {:<20} {:<20} {:<20}".format("LEXEME", "SPAM OCCURENCE", "NOT SPAM OCCURENCE", "SPAM PROBABILITY"))
+
 spam_probability_sum = 0
 for k in wordfreq:
     if k not in wordfreq2:
@@ -146,6 +147,7 @@ for k in wordfreq:
         if k in fileWords:
             print ("{:<15} {:<20} {:<20} {:<20}".format(k, wordfreq[k], wordfreq2[k], round(spam_probability, 4)))
             spam_probability_sum += spam_probability
+            spamProbability[k] = round(spam_probability, 4)
                 
 
         # print("Probability is: ", probability, "\n") 
@@ -153,10 +155,51 @@ for k in wordfreq:
 
 
 
-spam_mean = spam_probability_sum / fileWordsCount
+spam_mean = spam_probability_sum / fileWordsCount   # mean value of spam probabilities for single file
+print("\n\n#-- Mean value of all probabilities from this file is : ", round(spam_mean, 4), " --#")
 
-print("\n\nMean value of all probabilities for this file is: ", round(spam_mean, 4))
 
+#-------------------------------- TASK 5. Find remoted lexemes. // Lexemes that are farthest away from the mean probability --------------------------------#
+
+remoted_lexemes = {}
+
+
+
+print("\n\n#-- Remoted probabilities from mean probability for this file are:  --#")
+
+N = 8   # number of chosen remoted lexemes
+
+for i in range(N):
+    for k in spamProbability:
+        # print(spamProbability[k])
+        min_probability = min(spamProbability, key=spamProbability.get)  #word
+        max_probability = max(spamProbability, key=spamProbability.get)  #word
+        # print("MIN PROBABILITY", spamProbability[min_probability])
+        # print("MAX PROBABILITY", spamProbability[max_probability])
+
+        min_probability_float = spamProbability[min_probability]
+        max_probability_float = spamProbability[max_probability]
+
+    if max_probability_float - spam_mean > spam_mean - min_probability_float:
+        remoted_lexemes[max_probability] = max_probability_float
+        spamProbability.pop(max_probability)
+
+    if max_probability_float - spam_mean < spam_mean - min_probability_float:
+        remoted_lexemes[min_probability] = min_probability_float
+        spamProbability.pop(min_probability)
+
+
+# for i in range(N):
+    
+remotedLoopCount = 0
+for i in remoted_lexemes:
+    remotedLoopCount+=1
+    print("{:<10} {:<15} {:<15}".format(remotedLoopCount, i, remoted_lexemes[i]))
+
+
+
+
+    
 
 
 print("\n\n\n\nFound: ")

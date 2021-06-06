@@ -191294,211 +191294,266 @@ File exists
 
 
 Re: 1
-(no 1
-subject)I've 1
-picked 1
-up 1
-these 2
-patches 3
-and 4
-will 2
-submit 1
-to 7
-CVS 1
-eventually 1
-If 1
-there 1
-are 3
-bugs 3
-worth 2
-fixing 1
-please 1
-let 1
-me 1
-know 2
-about 2
-the 11
-fixes 1
-for 1
-them 1
->>>Mark 1
-Scarborough 1
-said: 3
-> 69
-tg@sema.se 1
-mscar 1
-<mscar-list-exmh@cactus.org> 1
-My 1
-biggest 1
-problem 1
-with 2
-it 6
-is 3
-that 5
-always 2
-render 1
-HTML 4
-in 3
-messages 1
-only 1
-(possible 1
-speed 1
-and/or 1
-"I 1
-didn't 1
-want 2
-see 1
-porno 1
-email" 1
-problems) 1
-Also 1
-does 1
-away 1
-option 2
-view 1
-an 1
-part 2
-Netscape 1
-There 2
-might 1
-be 3
-times 1
-when 2
-I 7
-use 1
-a 5
-more 1
-fully-featured 1
-viewer 1
-if 2
-determine 1
-it's 1
-risk 1
-Try 1
-two 1
-(for 1
-exmh-2.5 1
-07/13/2001) 1
-just 1
-tossed 1
-together 1
-The 1
-config 1
-$uri(deferDisplaysInline) 1
-probably 2
-doesn't 1
-makes 1
-any 1
-sense 1
-should 1
-off 1
-But 1
-you 6
-never 1
-what 2
-people 1
-like 1
-Anyway 1
-get 1
-text/html 1
-have 4
-defer 1
-selected 1
-can 2
-display 1
+How 1
+to 13
+manage 2
+multiple 2
+Internet 1
+connections?From 1
+nobody 1
+Sun 1
+Jan 1
+03 1
+19:33:39 1
+2016 1
+Content-Type: 1
+text/plain; 1
+charset=us-ascii 1
+Content-Disposition: 1
 inline 1
-by 1
-checking 1
-box 1
-right-button 1
-menu 1
-/Tomas 1
-G 1
-Tomas 2
-This 2
-GREAT! 1
-Thank 1
-you! 1
-exactly 1
-was 1
-thinking 1
-as 1
-"best" 1
-solution 1
-whether 1
-expressed 1
-well 1
-or 2
-not 1
-couple 1
-of 1
-"coloring" 1
-"highlighting" 1
-haven't 1
-had 1
-time 1
-fully 1
-characterize 1
-yet 1
-but 1
-don't 1
-care 1
-We 1
+Content-Transfer-Encoding: 1
+quoted-printable 1
+On 1
+Sat,15.May.10 1
+16:47:07 1
+Merciadri 1
+Luca 1
+wrote: 1
+> 32
+But 2
+will 1
+probably 1
+not 6
 work 1
-out 1
- 6
-at 1
-least 1
-we 1
-functionality 1
-Everyone: 1
-ever 1
-wanted 1
-able 1
-choose 1
-between 1
-internal 1
-engine 1
-whatever 1
-external 1
-browser 1
-defined 1
+in 3
+you 11
+case 1
+as 3
+it 6
+was 1
+meant 1
+combine 1
+two= 1
+=20 4
+(or 1
+more?) 1
+network 3
+ports 1
+from 2
+the 9
+same 2
+computer 1
+connected 3
+same= 1
+switch 2
+The 2
+description 1
+says 1
+>=20 3
+=3D=3D 2
+Linux 1
+bonding 1
+driver 1
+provides 1
+a 7
+method 1
+for 4
+aggregating 1
+interfaces 1
+into 2
+single 1
+logical 1
+bonded 2
+<http://en.wikipedia.com/wiki/Link_aggregation> 1
+interface 1
+Strictly 1
+speaking 1
+this 4
+is 13
+what 2
+I 5
+want 2
+Now 1
+your 4
+interpretation 1
+seems 1
+be 5
+based 1
 on 1
-per 1
-message 1
-basis 1
+definition 1
+of 3
+link 1
+aggregation 1
+which 1
+am 2
+really 2
+familiar 1
+with 3
+Basically 1
+merge 1
+connections 3
+one 4
+or 3
+at 2
+least 1
+divide 1
+and 4
+use 7
+them 3
+separately 1
+an 2
+easy 1
+way 2
+This 1
+so-rare 1
+situation 1
+it? 1
+E.g 1
+might 2
+wandering 1
+some 2
+zone 1
+where 2
+can 3
+WiFi 2
+but 3
+sometimes 1
+unavailable 1
+say 2
+specific 1
+regions 1
+If 1
+another 1
+connection 2
+example 1
+that 2
+given 1
+by 1
+mobile 1
+phone/smartphone 1
+/via/ 1
+Bluetooth 1
+(which 1
+then 1
+internet 3
+through 1
+other 1
+protocols) 1
+should 1
+possible 1
+between 1
+these 1
+two 2
+simultaneously 1
+if 2
+'s 1
+range 1
+too 3
+small 2
+WiFi's 1
+bandwidth 1
+compared 1
+smartphone's 1
+(Okay 1
+realistic 1
+example.) 1
+You 1
+also 1
+share 1
+neighbour 1
+legally 1
+lot 1
+when 1
+he 1
+does 1
+need 3
+Then 1
+already 1
+ethernet 1
+both 2
+how? 1
+Bonding 1
+suitable 1
+because 1
+works 1
+low-level 1
+(it 1
+is=20 2
+layer 1
+2) 1
+unless 1
+have 2
+links 1
+provider 1
+using 1
+some=20 1
+technology 2
+(like 1
+ADSL) 1
+AFAIU 1
+BGP[1] 1
+can't 1
 give 1
-Tomas' 1
-try 1
-Thanks 1
-again 1
-Mark 1
-Exmh-users 2
-mailing 2
-list 2
-Exmh-users@redhat.com 2
-https://listman.redhat.com/mailman/listinfo/exmh-users 2
-Brent 1
-Welch 1
-Software 1
-Architect 1
-Panasas 1
-Inc 1
-Pioneering 1
-World's 1
-Most 1
-Scalable 1
-Agile 1
-Storage 1
-Network 1
-www.panasas.com 1
-welch@panasas.com 1
+any 1
+tips 1
+out 1
+my 1
+league 1
+;) 2
+Probably 1
+good 1
+start 1
+(whatever 1
+end 1
+up 1
+using) 1
+a=20 1
+GNU/Linux 1
+(preferably 1
+Debian) 1
+machine 1
+links=20 1
+internal 1
+since 1
+consumer 1
+gateways 1
+don't 1
+even 1
+more=20 1
+than 1
+WAN 1
+port[2] 1
+[1] 1
+http://en.wikipedia.org/wiki/Border_Gateway_Protocol 1
+[2] 1
+could 1
+used 1
+custom 1
+firmware 1
+this=20 1
+off-topic 1
+Regards 1
+Andrei 1
+P.S 1
+There 1
+no 1
+CC 1
+me 1
+subscribed 1
+list 1
+Offtopic 1
+discussions 1
+among 1
+Debian 1
+users 1
+developers: 1
+http://lists.alioth.debian.org/mailman/listinfo/d-community-offtopic 1
 
 
-Number of words in specified file is  200
+Number of words in specified file is  255
 
 
-File  Not_spam/10_ne_spam.txt  was checked
+File  Not_spam/2_ne_spam.txt  was checked
 
 
 LEXEME SPAM/NOT SPAM OCCURENCE: 
@@ -191508,169 +191563,221 @@ LEXEME SPAM/NOT SPAM OCCURENCE:
 LEXEME          SPAM OCCURENCE       NOT SPAM OCCURENCE   SPAM PROBABILITY    
 of              10931                12205                0.4707              
 a               5931                 13900                0.2976              
-Try             19                   61                   0.2362              
 it              1490                 5674                 0.2068              
 for             3898                 6976                 0.3569              
+nobody          292                  364                  0.4434              
+Sun             311                  487                  0.3881              
+Jan             291                  331                  0.4661              
+03              291                  342                  0.458               
+19:33:39        35                   33                   0.513               
+2016            287                  319                  0.4719              
+Content-Type:   316                  335                  0.4837              
+Content-Transfer-Encoding: 294                  249                  0.5397              
 by              2130                 1934                 0.5224              
 that            2322                 7220                 0.2421              
 you             4294                 4835                 0.4686              
 with            2350                 5176                 0.3107              
 and             9545                 11881                0.4438              
 when            333                  1204                 0.2155              
+your            2777                 2441                 0.5305              
 in              6025                 8246                 0.4205              
+some            363                  1362                 0.2093              
 I               1603                 8846                 0.1525              
+too             85                   385                  0.1798              
 was             1596                 2191                 0.4197              
 as              2116                 2941                 0.4167              
-about           445                  1363                 0.2448              
 the             17070                25942                0.3952              
+Internet        175                  293                  0.3723              
 probably        29                   277                  0.0942              
-are             2514                 3189                 0.4391              
 me              314                  1196                 0.2068              
+my              555                  1865                 0.2281              
 have            1683                 3574                 0.3186              
 to              9953                 18589                0.3471              
+other           591                  1055                 0.3574              
+way             217                  780                  0.2165              
 or              2084                 2894                 0.4169              
-more            764                  1321                 0.3648              
-try             85                   387                  0.1791              
+then            280                  870                  0.2422              
+this            2697                 3557                 0.4295              
 any             702                  1088                 0.3905              
-had             367                  751                  0.3267              
+because         296                  665                  0.3065              
 on              2332                 4674                 0.3313              
+link            215                  151                  0.5857              
 at              1309                 2826                 0.3151              
+am              211                  515                  0.2892              
 is              4060                 8967                 0.3102              
-only            536                  1039                 0.3387              
+no              480                  1138                 0.2952              
+You             657                  669                  0.4937              
 if              480                  1809                 0.2085              
-get             501                  1257                 0.2836              
-time            520                  1064                 0.3267              
+also            533                  856                  0.3821              
+logical         4                    23                   0.1473              
+from            2010                 2862                 0.4109              
+start           108                  245                  0.3045              
+specific        38                   105                  0.2644              
+need            242                  701                  0.2553              
 give            133                  249                  0.3466              
-yet             40                   183                  0.1783              
 them            282                  750                  0.2719              
 out             623                  1229                 0.3348              
 two             233                  427                  0.3514              
+really          105                  524                  0.166               
 does            170                  679                  0.1991              
 be              1772                 3972                 0.307               
-well            196                  407                  0.3235              
 want            280                  642                  0.3022              
+into            403                  770                  0.342               
 but             532                  2670                 0.1652              
-just            413                  1367                 0.2308              
 not             1304                 3609                 0.2641              
-able            84                   253                  0.2479              
-see             347                  629                  0.3539              
+than            366                  882                  0.2918              
+which           865                  1467                 0.3693              
 up              457                  1213                 0.2723              
 can             931                  2193                 0.2966              
 will            1343                 1844                 0.4197              
-whether         58                   158                  0.2671              
-                3639                 8559                 0.2969              
-fully           28                   66                   0.2964              
-like            444                  1216                 0.2661              
-wanted          29                   112                  0.2045              
-we              577                  1032                 0.357               
+Then            42                   141                  0.2283              
+even            247                  645                  0.2755              
+could           183                  781                  0.1888              
 an              1196                 2207                 0.3499              
-view            255                  84                   0.7509              
-people          552                  660                  0.4537              
+same            222                  611                  0.2651              
+works           64                   338                  0.1583              
 The             2480                 2855                 0.4631              
+since           180                  500                  0.2633              
+one             582                  1295                 0.3086              
+he              346                  622                  0.3558              
+through         240                  360                  0.3983              
 should          192                  751                  0.2025              
+On              162                  1148                 0.1229              
+used            256                  523                  0.3271              
 work            255                  760                  0.2499              
-engine          12                   47                   0.2023              
-problem         28                   704                  0.038               
-there           339                  1243                 0.2131              
-HTML            395                  132                  0.7482              
-per             221                  129                  0.6298              
+single          67                   146                  0.313               
+machine         16                   187                  0.0783              
+subscribed      128                  81                   0.6108              
+text/plain;     244                  255                  0.4872              
+quoted-printable 157                  217                  0.4181              
+=20             718                  795                  0.4728              
 use             356                  1495                 0.1912              
 >               1388                 30124                0.0438              
-please          501                  313                  0.6138              
-message         398                  498                  0.4425              
-We              564                  296                  0.6542              
-solution        39                   130                  0.2295              
+custom          68                   68                   0.4982              
 If              608                  1014                 0.3732              
+technology      54                   163                  0.2475              
+How             80                   272                  0.226               
+2)              24                   33                   0.4193              
+given           84                   143                  0.3684              
 This            979                  1311                 0.4258              
-Inc             112                  209                  0.3473              
-Software        80                   141                  0.3604              
-care            54                   72                   0.4269              
+consumer        18                   30                   0.3734              
 what            283                  1204                 0.1892              
+possible        77                   240                  0.2416              
 these           296                  504                  0.3684              
-messages        34                   280                  0.1076              
-again           124                  262                  0.3197              
 between         173                  314                  0.3536              
-times           70                   153                  0.3124              
-part            163                  205                  0.4412              
-Most            67                   92                   0.4197              
-it's            88                   795                  0.099               
-mailing         206                  841                  0.1956              
-G               95                   16                   0.855               
-makes           41                   208                  0.1637              
-never           174                  302                  0.3639              
+sometimes       29                   79                   0.2671              
+links           44                   84                   0.3422              
+'s              2                    5                    0.2843              
 But             88                   640                  0.1201              
-determine       11                   21                   0.3422              
-risk            68                   26                   0.722               
-let             32                   150                  0.1748              
-Netscape        7                    26                   0.211               
-know            199                  794                  0.1993              
-Thank           87                   66                   0.5669              
-speed           83                   77                   0.517               
+both            158                  327                  0.3242              
+easy            99                   157                  0.3851              
+already         76                   260                  0.225               
+example         130                  258                  0.3335              
 don't           193                  1051                 0.1542              
 list            439                  1583                 0.2159              
-My              90                   374                  0.1929              
-away            86                   138                  0.3823              
-off             150                  348                  0.2997              
-haven't         35                   122                  0.2217              
+layer           4                    11                   0.2653              
+using           100                  816                  0.1085              
+connections     3                    38                   0.0727              
 There           188                  308                  0.3774              
-biggest         10                   36                   0.2162              
-box             40                   172                  0.1876              
+end             108                  264                  0.2889              
+where           174                  528                  0.2466              
+compared        32                   32                   0.4982              
+users           24                   362                  0.0618              
+connected       15                   35                   0.2985              
+Now             87                   232                  0.2713              
+manage          32                   51                   0.3839              
+computer        120                  216                  0.3555              
+situation       27                   72                   0.2713              
+based           119                  174                  0.4045              
+lot             61                   236                  0.2042              
+charset=us-ascii 30                   83                   0.2641              
+Content-Disposition: 5                    76                   0.0613              
 inline          10                   81                   0.1092              
-Storage         5                    21                   0.1912              
-basis           37                   41                   0.4726              
-Also            55                   161                  0.2533              
-ever            117                  186                  0.3845              
-external        6                    92                   0.0608              
+method          48                   90                   0.3462              
+(which          21                   90                   0.1881              
 least           159                  230                  0.407               
-whatever        65                   91                   0.415               
-sense           18                   109                  0.1409              
-menu            2                    73                   0.0265              
+another         88                   358                  0.1962              
+multiple        16                   111                  0.1252              
+interpretation  3                    7                    0.2985              
+small           103                  178                  0.3649              
+say             77                   366                  0.1728              
+good            179                  490                  0.2662              
+mobile          23                   33                   0.409               
+interface       15                   171                  0.0801              
 might           116                  425                  0.2132              
-always          75                   302                  0.1978              
-exactly         102                  160                  0.3876              
-together        66                   87                   0.4297              
-checking        21                   60                   0.2579              
-"I              41                   84                   0.3265              
+share           89                   73                   0.5476              
+seems           53                   319                  0.1416              
+can't           68                   378                  0.1516              
+switch          16                   121                  0.1161              
+wrote:          11                   1935                 0.0056              
+provides        30                   100                  0.2295              
+tips            17                   48                   0.2602              
+definition      9                    32                   0.2183              
 internal        19                   74                   0.2032              
-defined         20                   30                   0.3983              
-choose          33                   82                   0.2855              
-Network         28                   114                  0.1961              
-thinking        21                   86                   0.1952              
-said:           8                    94                   0.0779              
-didn't          23                   268                  0.0785              
-submit          13                   37                   0.2587              
-expressed       11                   11                   0.4982              
-eventually      17                   32                   0.3454              
-doesn't         21                   423                  0.047               
-Thanks          19                   353                  0.0507              
-display         16                   108                  0.1282              
-worth           24                   115                  0.1717              
-couple          14                   117                  0.1062              
-option          11                   178                  0.0578              
-viewer          4                    7                    0.362               
-browser         29                   133                  0.178               
-you!            16                   11                   0.5909              
-(for            7                    65                   0.0966              
-Brent           1                    24                   0.0397              
+case            73                   347                  0.1728              
+Strictly        2                    1                    0.6651              
+internet        77                   71                   0.5185              
+legally         12                   10                   0.5437              
+a=20            24                   9                    0.7259              
+regions         27                   6                    0.8171              
+among           59                   70                   0.4556              
+says            33                   225                  0.1271              
+league          15                   4                    0.7883              
+description     10                   23                   0.3016              
+separately      6                    9                    0.3983              
+Regards         16                   135                  0.1053              
+it?             6                    96                   0.0584              
+unless          14                   96                   0.1265              
+network         44                   204                  0.1764              
+unavailable     3                    11                   0.2131              
+Linux           25                   675                  0.0355              
+=3D=3D          15                   20                   0.4269              
+range           36                   54                   0.3983              
+driver          15                   192                  0.072               
+connection      16                   100                  0.1371              
+bandwidth       3                    29                   0.0932              
+Bluetooth       6                    13                   0.3143              
+is=20           4                    9                    0.3062              
+this=20         2                    2                    0.4982              
+realistic       3                    10                   0.2295              
 Re:             27                   1996                 0.0133              
-selected        19                   55                   0.2554              
-Mark            8                    79                   0.0914              
-email"          2                    1                    0.6651              
-and/or          19                   57                   0.2487              
-problems)       1                    4                    0.1989              
-functionality   3                    46                   0.0608              
-Scarborough     2                    2                    0.4982              
-text/html       2                    6                    0.2487              
-(no             8                    19                   0.2948              
-render          3                    14                   0.1755              
-Architect       1                    18                   0.0523              
-Welch           1                    22                   0.0432              
-bugs            1                    141                  0.007               
-World's         1                    17                   0.0552              
-patches         1                    30                   0.032               
+P.S             9                    26                   0.2558              
+CC              3                    19                   0.1355              
+meant           10                   45                   0.1808              
+familiar        8                    31                   0.204               
+zone            7                    13                   0.3484              
+(or             21                   177                  0.1054              
+simultaneously  3                    16                   0.157               
+suitable        6                    18                   0.2487              
+combine         6                    8                    0.4269              
+[2]             6                    96                   0.0584              
+(like           7                    34                   0.1697              
+speaking        6                    22                   0.2131              
+Andrei          1                    37                   0.0261              
+divide          2                    1                    0.6651              
+discussions     5                    32                   0.1343              
+Basically       3                    9                    0.2487              
+provider        8                    29                   0.215               
+ports           1                    36                   0.0268              
+bonding         1                    4                    0.1989              
+Probably        6                    33                   0.1529              
+[1]             2                    169                  0.0116              
+merge           1                    41                   0.0236              
+;)              1                    86                   0.0114              
 
 
-Mean value of all probabilities for this file is:  0.2343
+#-- Mean value of all probabilities from this file is :  0.2321  --#
+
+
+#-- Remoted probabilities from mean probability for this file are:  --#
+1          regions         0.8171         
+2          league          0.7883         
+3          a=20            0.7259         
+4          Strictly        0.6651         
+5          divide          0.6651         
+6          subscribed      0.6108         
+7          link            0.5857         
+8          share           0.5476         
 
 
 
