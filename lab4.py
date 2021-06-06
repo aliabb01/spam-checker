@@ -164,7 +164,7 @@ def SpamCheck(a):
 
         remoted_lexemes = {}
 
-        N = 4   # number of chosen remoted lexemes
+        N = 2   # number of chosen remoted lexemes
 
         for i in range(N):
             for k in spamProbability:
@@ -241,8 +241,17 @@ def SpamCheck(a):
     
 
 
-for i in range(3500):
-    SpamCheck(i)
+for i in range(0, 4325):
+    if i == 2009:
+        print("skipped ", i)
+    elif i == 3326:
+        print("skipped ", i)
+    elif i == 4156:
+        print("skipped ", i)
+    elif i == 4165:
+        print("skipped ", i)
+    else:
+        SpamCheck(i)
 #     # time.sleep(0.5)
 
 
