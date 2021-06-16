@@ -1,12 +1,16 @@
-import numpy as np
-import pandas as pd
+# import numpy as np
+# import pandas as pd
 import os
 import os.path
 import time
+import winsound
 
 # print(os.listdir("./Spam"))
 
 import sys
+
+# Initialization of execution time variable
+start_time = time.time()
 
 wordfreq = {}   # word frequency dict for spam
 
@@ -17,15 +21,23 @@ spam_count = 0
 not_spam_count = 0
 overlapping_count = 0
 
+# file counts
+spam_files_count = 0
+ham_files_count = 0
+spam_ham_files_count = 0
+
+
 # SPAM
 for i in range(5000):
     filenameS = "Spam/" + str(i) + "_spam.txt"
     if os.path.isfile(filenameS):
-        print ("\n\n\nFile exists")    
+        print ("File exists")    
         fp = open(filenameS, errors="ignore")
         data = fp.read()
         spam_words = data.split()
         fp.close()
+
+        spam_files_count+=1
 
         unwanted_chars = ".,-_:'></}{_"
         
@@ -48,6 +60,8 @@ for i in range(5000):
         ns_words = data2.split()
         fp2.close()
 
+        ham_files_count+=1
+
         unwanted_chars = ".,-_:'></}{_"
 
         for ns_word in ns_words:
@@ -58,6 +72,7 @@ for i in range(5000):
 
     else:
         print ("File doesn't exist", i)
+
 
 
 print("\n\n\n\n\n\n\n SPAM \n\n\n\n\n\n\n")
@@ -75,12 +90,31 @@ for i in wordfreq2:
 
 #---------------------- Initialization for checking a single file. Checking lexemes and their counts -----------------------#
 
-def SpamCheck(a):
+# spam_classfied_ham = 0
+# ham_classfied_spam = 0
+# spam_classfied_spam = 0
+# ham_classfied_ham = 0
+
+spamHamClassificationDict = {
+    'SPAM Classified as SPAM': 0,
+    'HAM Classified as SPAM': 0,
+    'SPAM Classified as HAM': 0,
+    'HAM Classified as HAM': 0
+}
+
+spamicityProbabilitiesDict = {}
+
+# no_of_files = {
+#     'overall files': 0,
+#     'ham files': 0,
+#     'spam files': 0
+# }
+
+def SpamCheck(a, isSpam):
     fileWords = {}
     fileWordsCount = 0
 
     index = a
-    isSpam = False
 
 
     if isSpam:
@@ -95,6 +129,13 @@ def SpamCheck(a):
         check_words = data3.split()
         fp3.close()
 
+        # no_of_files['overall files']+=1
+
+        # if isSpam:
+        #     no_of_files['spam files']+=1
+        # else:
+        #     no_of_files['ham files']+=1
+
         unwanted_chars = ".,-_:'></}{_"
 
         for check_word in check_words:
@@ -108,7 +149,7 @@ def SpamCheck(a):
             # print(i, fileWords[i])
             fileWordsCount+=1
 
-        print("=================================================================\n\n\n")
+        # print("=================================================================\n\n\n")
         print("Checking file :", checkFilePath, "\n\n")
         print("Number of words in specified file is ", fileWordsCount)
         
@@ -178,12 +219,24 @@ def SpamCheck(a):
                 max_probability_float = spamProbability[max_probability]
 
             if max_probability_float - spam_mean > spam_mean - min_probability_float:
-                remoted_lexemes[max_probability] = max_probability_float
-                spamProbability.pop(max_probability)
+                if(N > fileWordsCount):
+                    print("N was bigger than words in file")
+                else:
+                    remoted_lexemes[max_probability] = max_probability_float
+                    try:
+                        spamProbability.pop(max_probability)
+                    except:
+                        print("Error occurred while checking ", checkFilePath)
 
             if max_probability_float - spam_mean < spam_mean - min_probability_float:
-                remoted_lexemes[min_probability] = min_probability_float
-                spamProbability.pop(min_probability)
+                if(N > fileWordsCount):
+                    print("N was bigger than words in file")
+                else:
+                    remoted_lexemes[min_probability] = min_probability_float
+                    try:
+                        spamProbability.pop(min_probability)
+                    except:
+                        print("Error occurred while checking ", checkFilePath)
 
 
         print("\n\n#-- Remoted probabilities from mean probability for this file are:  --#")
@@ -224,10 +277,27 @@ def SpamCheck(a):
 
         print("\n\nSPAMICITY PROBABILITY of selected file ",checkFilePath, " : ", round(spamicityProbabilityOfFile, 4))
 
-        if spamicityProbabilityOfFile > 0.5:
+
+        # Put each file and its rounded probability to a dictionary
+        spamicityProbabilityOfFileRounded =  round(spamicityProbabilityOfFile, 4)
+
+        spamicityProbabilitiesDict[checkFilePath] = spamicityProbabilityOfFileRounded
+
+        # Considering if file is SPAM or HAM
+        if spamicityProbabilityOfFile > 0.9999:
             print("\nIt is likely that selected file is SPAM")
+            if isSpam:
+                spamHamClassificationDict["SPAM Classified as SPAM"] += 1
+            if not isSpam:
+                spamHamClassificationDict["HAM Classified as SPAM"] += 1
         else:
             print("\nIt is likely that selected file is NOT SPAM")
+            if isSpam:
+                spamHamClassificationDict["SPAM Classified as HAM"] += 1
+            if not isSpam:
+                spamHamClassificationDict["HAM Classified as HAM"] += 1
+
+        print("\n\n=================================================================")
         
         print("\n\n\n")
         
@@ -240,8 +310,8 @@ def SpamCheck(a):
 
     
 
-
-for i in range(0, 4325):
+# Not Spam
+for i in range(0, 4330):
     if i == 2009:
         print("skipped ", i)
     elif i == 3326:
@@ -250,11 +320,65 @@ for i in range(0, 4325):
         print("skipped ", i)
     elif i == 4165:
         print("skipped ", i)
+    # # 16
+    # # elif i == 46:
+    # #     print("skipped ", i)
+    # # elif i == 320:
+    # #     print("skipped ", i)
+    # # elif i == 332:
+    # #     print("skipped ", i)
+    # # elif i == 452:
+    # #     print("skipped ", i)
     else:
-        SpamCheck(i)
+        SpamCheck(i, False)
 #     # time.sleep(0.5)
 
+# Spam
+for i in range(0, 4400):
+    SpamCheck(i, True)
 
-print("\n\n\n\nFound: ")
+# Sort file and probabilities dictionary based on descending probability values
+sorted_spamicityProbabilitiesDict = sorted(spamicityProbabilitiesDict.items(), key=lambda x: x[1], reverse = True)
+
+print("\n\nFiles and their probabilities in descending order: \n\n")
+
+all_probabilities_sum = 0
+
+fileCountIndex = 0
+
+for i in sorted_spamicityProbabilitiesDict:
+    print("{:<30} {:<35}".format(i[0], i[1]))
+    all_probabilities_sum += i[1]
+    fileCountIndex+=1
+
+threshold_spamicity_value = all_probabilities_sum / fileCountIndex
+
+threshold_spamicity_value_rounded = round(threshold_spamicity_value, 4)
+
+# better THRESHOLD SPAMICITY VALUE
+print("\n\nMEAN PROBABILITY FOR ALL FILES (rounded): ", threshold_spamicity_value_rounded)
+
+for i in spamHamClassificationDict:
+    print(i, spamHamClassificationDict[i])
+
+correct_forecasts = spamHamClassificationDict["SPAM Classified as SPAM"] + spamHamClassificationDict["HAM Classified as HAM"]
+all_forecasts = spamHamClassificationDict["SPAM Classified as SPAM"] + spamHamClassificationDict["HAM Classified as HAM"] + spamHamClassificationDict["SPAM Classified as HAM"] + spamHamClassificationDict["HAM Classified as SPAM"]
+
+accuracy = correct_forecasts * 100 / all_forecasts
+roundedAccuracy = round(accuracy, 4)
+
+print("\n\nACCURACY is : ", roundedAccuracy, " %")
+
+spam_ham_files_count = spam_files_count + ham_files_count
+
+print("\n\n\nFound: ")
 print(spam_count, " Spam lexemes")
 print(not_spam_count, " Not Spam lexemes")
+print(spam_ham_files_count, " Files in total (Spam files: ", spam_files_count, ", Ham files: ", ham_files_count, ")")
+
+
+
+
+print("\n\n--- EXECUTION TIME : %.2f seconds ---" % (time.time()-start_time))
+
+winsound.Beep(2500, 2500)
